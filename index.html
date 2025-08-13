@@ -97,7 +97,7 @@
         .ca-info:hover {
             color: #FFD700;
         }
-        .x-link {
+        .x-link, .buy-link {
             font-size: 1.2rem;
             color: #FFA500;
             font-weight: bold;
@@ -106,17 +106,18 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            margin: 0.5rem;
         }
-        .x-link:hover {
+        .x-link:hover, .buy-link:hover {
             color: #FFD700;
             text-decoration: underline;
         }
-        .x-icon {
+        .x-icon, .buy-icon {
             font-size: 1.5rem;
             color: #FFA500;
             transition: color 0.3s ease;
         }
-        .x-link:hover .x-icon {
+        .x-link:hover .x-icon, .buy-link:hover .buy-icon {
             color: #FFD700;
         }
         .card {
@@ -224,10 +225,10 @@
             .message {
                 font-size: 1.4rem;
             }
-            .ca-info, .x-link {
+            .ca-info, .x-link, .buy-link {
                 font-size: 1rem;
             }
-            .x-icon {
+            .x-icon, .buy-icon {
                 font-size: 1.2rem;
             }
             .card {
@@ -282,6 +283,10 @@
             <a href="https://x.com/LFGBrothers" class="x-link">
                 <i class="fa-brands fa-x-twitter x-icon"></i>
                 Follow @LFGBrothers on X
+            </a>
+            <a href="https://bags.fm/3riSqSEZMUv1k6Uz4o7TnXaGuZRKscYBK2UDtJgnBAGS" class="buy-link">
+                <i class="fas fa-shopping-cart buy-icon"></i>
+                Buy $LFG on Bags
             </a>
         </div>
         <div class="card">
