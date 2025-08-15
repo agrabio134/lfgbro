@@ -93,6 +93,10 @@
             margin-bottom: 1rem;
             cursor: pointer;
             transition: color 0.3s ease;
+            line-height: 1.4;
+            word-break: break-all;
+            max-width: 100%;
+            display: inline-block;
         }
         .ca-info:hover {
             color: #FFD700;
@@ -153,6 +157,19 @@
             color: #FFA500;
             margin: 0.5rem 0;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        .tokenomics:hover {
+            background: rgba(255, 165, 0, 0.1);
+        }
+        .tokenomics i {
+            font-size: 1.4rem;
+            color: #FFD700;
         }
         .button {
             display: inline-block;
@@ -212,20 +229,6 @@
         .alert.show {
             opacity: 1;
         }
-
- .ca-info {
-            font-size: 1.2rem;
-            color: #FF4500;
-            font-weight: bold;
-            text-shadow: 1px 1px #FFA500;
-            margin-bottom: 1rem;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            line-height: 1.4;
-            word-break: break-all; /* Add this line */
-            max-width: 100%; /* Add this line */
-            display: inline-block; /* Add this line */
-        }
         @media (max-width: 768px) {
             header {
                 padding: 1rem 0.5rem;
@@ -267,6 +270,9 @@
             }
             .tokenomics {
                 font-size: 0.9rem;
+            }
+            .tokenomics i {
+                font-size: 1.1rem;
             }
             .button {
                 padding: 0.8rem 1.5rem;
@@ -311,6 +317,9 @@
             .tokenomics {
                 font-size: 0.8rem;
             }
+            .tokenomics i {
+                font-size: 1rem;
+            }
             .button {
                 padding: 0.6rem 1.2rem;
                 font-size: 0.8rem;
@@ -339,16 +348,16 @@
         <div class="hero">
             <img src="img.jpg" alt="LFG Character" class="character">
             <div class="message">LFG Brothers! Pump the meme coin to the moon!</div>
-            <p class="ca-info" onclick="copyCA()">CA: 3riSqSEZMUv1k6Uz4o7TnXaGuZRKscYBK2UDtJgnBAGS</p>
+            <p class="ca-info" onclick="copyCA()">CA: SOON</p>
             <div class="links-container">
                 <a href="https://x.com/LFGBrothers" class="x-link">
                     <i class="fa-brands fa-x-twitter x-icon"></i>
                     Follow @LFGBrothers on X
                 </a>
-                <a href="https://bags.fm/3riSqSEZMUv1k6Uz4o7TnXaGuZRKscYBK2UDtJgnBAGS" class="buy-link">
+                <!-- <a href="https://bags.fm/3riSqSEZMUv1k6Uz4o7TnXaGuZRKscYBK2UDtJgnBAGS" class="buy-link">
                     <i class="fa-solid fa-cart-shopping buy-icon"></i>
                     Buy Now
-                </a>
+                </a> -->
             </div>
         </div>
         <div class="card">
@@ -363,10 +372,12 @@
         </div>
         <div class="card">
             <h2 class="section-title">Tokenomics</h2>
-            <p class="tokenomics">Total Supply: 1 Billion $LFG</p>
-            <p class="tokenomics">Liquidity: Locked forever!</p>
+            <p class="tokenomics"><i class="fa-solid fa-thumbtack"></i> MAX Supply: 100 LFG</p>
+            <p class="tokenomics"><i class="fa-solid fa-lock"></i> 40% Locked: 5M Locked</p>
+            <p class="tokenomics"><i class="fa-solid fa-fire"></i> 40% Liquidity Pool</p>
+            <p class="tokenomics"><i class="fa-solid fa-handshake"></i> 20% Partners 2026 (NFTs / Memes / Airdrops)</p>
             <div id="dexscreener-embed">
-                <iframe src="https://dexscreener.com/solana/3riSqSEZMUv1k6Uz4o7TnXaGuZRKscYBK2UDtJgnBAGS?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15"></iframe>
+                <iframe src="https://dexscreener.com/solana/(TOKEN HERE)?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15"></iframe>
             </div>
         </div>
     </div>
@@ -376,7 +387,7 @@
     <div id="alert" class="alert">Copied to clipboard!</div>
     <script>
         function copyCA() {
-            const caText = "3riSqSEZMUv1k6Uz4o7TnXaGuZRKscYBK2UDtJgnBAGS";
+            const caText = "SOON";
             navigator.clipboard.writeText(caText).then(() => {
                 const alert = document.getElementById('alert');
                 alert.classList.add('show');
