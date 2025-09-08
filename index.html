@@ -15,20 +15,45 @@
         }
         body {
             font-family: 'Press Start 2P', 'Courier New', monospace;
-            background: linear-gradient(to bottom, #00BFFF, #008B8B);
-            color: #333;
+            background: linear-gradient(to bottom, #1B263B, #0D1B2A);
+            color: #E0E1DD;
             line-height: 1.6;
             text-align: center;
             -webkit-font-smoothing: none;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            position: relative;
+            overflow-x: hidden;
+        }
+        .starry-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .star {
+            position: absolute;
+            background: #FFFFFF;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: twinkle 3s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 0.3; }
         }
         header {
-            background: linear-gradient(to right, #FF4500, #FFA500);
+            background: linear-gradient(to right, #F72585, #7209B7);
             color: #FFFFFF;
             padding: 2rem 1rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 1;
         }
         .header-content {
             max-width: 1200px;
@@ -40,39 +65,55 @@
         .ticker {
             font-size: 2.5rem;
             font-weight: bold;
-            color: #FFD700;
+            color: #FFD60A;
             text-transform: uppercase;
             letter-spacing: 4px;
             margin-bottom: 0.5rem;
             animation: glow 1.5s infinite alternate;
         }
         @keyframes glow {
-            from { text-shadow: 0 0 5px #FFA500; }
-            to { text-shadow: 0 0 15px #FFD700; }
+            from { text-shadow: 0 0 5px #FFD60A; }
+            to { text-shadow: 0 0 15px #FFFFFF; }
         }
         .header-subtitle {
             font-size: 1.4rem;
             font-weight: normal;
-            text-shadow: 2px 2px #FF4500;
+            text-shadow: 2px 2px #7209B7;
         }
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 1rem;
             flex: 1;
+            position: relative;
+            z-index: 1;
         }
         .hero {
             margin-bottom: 2rem;
+        }
+        .hero-video {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: 0 auto 1rem;
+            border: 4px solid #F72585;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+        .hero-video:hover {
+            transform: scale(1.02);
         }
         .character {
             max-width: 220px;
             height: auto;
             display: block;
             margin: 0 auto 1rem;
-            border: 4px solid #FF4500;
+            border: 4px solid #F72585;
             border-radius: 12px;
             image-rendering: pixelated;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
             transition: transform 0.3s ease;
         }
         .character:hover {
@@ -80,16 +121,16 @@
         }
         .message {
             font-size: 1.6rem;
-            color: #FF4500;
+            color: #F72585;
             font-weight: bold;
-            text-shadow: 2px 2px #FFA500;
+            text-shadow: 2px 2px #FFD60A;
             margin-bottom: 1rem;
         }
         .ca-info {
             font-size: 1.2rem;
-            color: #FF4500;
+            color: #F72585;
             font-weight: bold;
-            text-shadow: 1px 1px #FFA500;
+            text-shadow: 1px 1px #FFD60A;
             margin-bottom: 1rem;
             cursor: pointer;
             transition: color 0.3s ease;
@@ -99,11 +140,11 @@
             display: inline-block;
         }
         .ca-info:hover {
-            color: #FFD700;
+            color: #FFD60A;
         }
         .x-link, .buy-link {
             font-size: 1.2rem;
-            color: #FFA500;
+            color: #FFD60A;
             font-weight: bold;
             text-decoration: none;
             transition: color 0.3s ease;
@@ -113,16 +154,16 @@
             margin: 0.5rem;
         }
         .x-link:hover, .buy-link:hover {
-            color: #FFD700;
+            color: #FFFFFF;
             text-decoration: underline;
         }
         .x-icon, .buy-icon {
             font-size: 1.5rem;
-            color: #FFA500;
+            color: #FFD60A;
             transition: color 0.3s ease;
         }
         .x-link:hover .x-icon, .buy-link:hover .buy-icon {
-            color: #FFD700;
+            color: #FFFFFF;
         }
         .links-container {
             display: flex;
@@ -131,30 +172,31 @@
             gap: 1rem;
         }
         .card {
-            background: rgba(255, 255, 255, 0.95);
-            border: 4px solid #FFA500;
+            background: rgba(255, 255, 255, 0.1);
+            border: 4px solid #FFD60A;
             border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             padding: 1.5rem;
             margin: 1.5rem auto;
             max-width: 700px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(5px);
         }
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
         }
         .section-title {
             font-size: 2rem;
-            color: #333;
+            color: #E0E1DD;
             margin-bottom: 1rem;
             font-weight: bold;
             text-transform: uppercase;
-            text-shadow: 1px 1px #FFA500;
+            text-shadow: 1px 1px #F72585;
         }
         .tokenomics {
             font-size: 1.2rem;
-            color: #FFA500;
+            color: #FFD60A;
             margin: 0.5rem 0;
             font-weight: bold;
             display: flex;
@@ -165,18 +207,18 @@
             transition: background 0.3s ease;
         }
         .tokenomics:hover {
-            background: rgba(255, 165, 0, 0.1);
+            background: rgba(247, 37, 133, 0.2);
         }
         .tokenomics i {
             font-size: 1.4rem;
-            color: #FFD700;
+            color: #FFFFFF;
         }
         .button {
             display: inline-block;
-            background: linear-gradient(to right, #FFA500, #FF4500);
+            background: linear-gradient(to right, #F72585, #7209B7);
             color: #FFFFFF;
             padding: 1rem 2rem;
-            border: 3px solid #FFD700;
+            border: 3px solid #FFD60A;
             border-radius: 10px;
             font-size: 1.2rem;
             font-weight: bold;
@@ -185,7 +227,7 @@
             transition: background 0.3s ease, transform 0.3s ease;
         }
         .button:hover {
-            background: linear-gradient(to right, #FF4500, #FFA500);
+            background: linear-gradient(to right, #7209B7, #F72585);
             transform: translateY(-5px);
         }
         #dexscreener-embed {
@@ -193,10 +235,10 @@
             width: 100%;
             padding-bottom: 56.25%;
             margin-top: 1rem;
-            border: 4px solid #FFA500;
+            border: 4px solid #FFD60A;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
         #dexscreener-embed iframe {
             position: absolute;
@@ -207,18 +249,20 @@
             border: 0;
         }
         footer {
-            background: #333;
-            color: #FFFFFF;
+            background: #0D1B2A;
+            color: #E0E1DD;
             padding: 1rem;
             font-size: 1rem;
             margin-top: auto;
+            position: relative;
+            z-index: 1;
         }
         .alert {
             position: fixed;
             top: 20px;
             right: 20px;
-            background: #FFD700;
-            color: #333;
+            background: #FFD60A;
+            color: #1B263B;
             padding: 0.8rem 1.5rem;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -243,6 +287,9 @@
             .container {
                 padding: 1rem 0.5rem;
                 width: 100%;
+            }
+            .hero-video {
+                max-width: 100%;
             }
             .character {
                 max-width: 160px;
@@ -287,6 +334,10 @@
                 padding: 0.5rem 1rem;
                 font-size: 0.8rem;
             }
+            .star {
+                width: 2px;
+                height: 2px;
+            }
         }
         @media (max-width: 480px) {
             .ticker {
@@ -294,6 +345,9 @@
             }
             .header-subtitle {
                 font-size: 0.9rem;
+            }
+            .hero-video {
+                max-width: 100%;
             }
             .character {
                 max-width: 120px;
@@ -324,6 +378,10 @@
                 padding: 0.6rem 1.2rem;
                 font-size: 0.8rem;
             }
+            .star {
+                width: 1px;
+                height: 1px;
+            }
         }
         @media (min-width: 1200px) {
             #dexscreener-embed {
@@ -338,6 +396,7 @@
     </style>
 </head>
 <body>
+    <div class="starry-background" id="starryBackground"></div>
     <header>
         <div class="header-content">
             <div class="ticker">$LFG</div>
@@ -346,6 +405,7 @@
     </header>
     <div class="container">
         <div class="hero">
+            <video src="/vid.mp4" autoplay loop muted playsinline class="hero-video"></video>
             <img src="img.jpg" alt="LFG Character" class="character">
             <div class="message">LFG Brothers! Pump the meme coin to the moon!</div>
             <p class="ca-info" onclick="copyCA()">CA: SOON</p>
@@ -396,6 +456,22 @@
                 }, 2000);
             });
         }
+
+        function createStars() {
+            const starryBackground = document.getElementById('starryBackground');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.width = Math.random() * 3 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starryBackground.appendChild(star);
+            }
+        }
+
+        window.onload = createStars;
     </script>
 </body>
 </html>
